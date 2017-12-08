@@ -1,0 +1,16 @@
+logs/*
+!.gitkeep
+node_modules/
+bower_components/
+app/libs/
+tmp
+.tmp/
+coverage/
+.DS_Store
+.idea
+coverage/Chrome 40.0.2214 (Mac OS X 10.10.2)/index.html
+coverage/Chrome 40.0.2214 (Mac OS X 10.10.2)/prettify.css
+coverage/Chrome 40.0.2214 (Mac OS X 10.10.2)/prettify.js
+.tmp/styles/fake.css
+dist.zip
+dist

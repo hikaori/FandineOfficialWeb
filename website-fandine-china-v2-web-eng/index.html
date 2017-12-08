@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="food, ordering, fine, dining, reservation, convenient, restaurant, take-out, app, Vancouver, Burnaby, Surrey, Coquitlam, Chinese food, Japanese food, sushi, burgers, fries, fresh juice, high-end fancy restaurants, crepe, Italian food, pasta, salad, American food, Mexican food, vegan, meatlovers, BBQ, Korean food, foodora, justeat, ubereats, yelp24">
+    <meta name="description" content="FanDine is a free food ordering app that allows you to skip the line at your favourite restaurants. With a large selection of premium and casual restaurants in Greater Vancouver, FanDine improves your dining experience by making food ordering more convenient and accessible, so you can focus on enjoying the food you love to eat! Save time during your break by ordering takeout, or order ahead of time to ensure your order is ready when you arrive.">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FanDine - Food Ordering & Fine Dining Reservations</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/ie10-viewport-bug-workaround.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/jumbotron-narrow.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.3/jquery.scrollTo.min.js"></script>
+    <script>
+        function openH5PreOrder(event) {
+            let e = event || window.event;
+            let strWindowFeatures = "menubar=0,location=0,resizable=0,scrollbars=yes,status=no,width=414,height=736,left=" + e.screenX +",top=" + e.screenY;
+            window.open("https://m.fandine.com/", "H5PreOrder", strWindowFeatures);
+        }
+    </script>
+    <script src="js/navbar.js"></script>
+</head>
+<body data-spy="scroll" data-target="#homePageNavBar" data-offset="100">
+<div class="img-responsive" id="scroll-home"></div>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="home-nav">
+    <div include-html="navbar.html"></div>
+    <script>
+        navbar.includeHTML();
+    </script>
+    <!--- <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+
+        <!--<div class="navbar-header" >
+            <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse"
+                    data-target="#homePageNavBar" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#DownloadNavBar"
+                    aria-expanded="false" id="download-button" onclick="closeNav('download')">
+                DOWNLOAD
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="homePageNavBar">
+            <a class="navbar-brand thumbnail hidden-xs" href="#"><img id="small-logo" src="img/FD_logo@3x.png"/></a>
+            <ul class="nav navbar-nav navbar-right navbar-a">
+                <li><a href="#scroll-home">Home</a></li>
+                <li><a href="#consomer-app">Download</a></li>
+                <li><a href="#" onclick="openH5PreOrder()">Pre-Order</a></li>
+                <li><a target="_blank" href="https://blog.fandine.com">News</a></li>
+                <li><a href="join.html">Become Partner</a></li>
+                <li><a target="_blank" href="https://ownerweb.fandine.com">Owner Web</a></li>
+                <!--<li><a href="#">Blog Map</a></li>-->
+                <!--<li id="translate-li"><a href="index_zh.html" id="translate-a"><img class="img-responsive" id="translate-img" src="img/translate_e@3x.png"/></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="hidden-lg hidden-md hidden-sm">
+        <div class="collapse navbar-collapse" id="DownloadNavBar">
+            <ul class="nav navbar-nav navbar-right c-download">
+                <li><a href="https://play.google.com/store/apps/details?id=fandine.consumer.na&hl=en"><img src="img/icn_google2.png"/> Download on the Google play</a></li>
+                <li><a href="https://itunes.apple.com/ca/app/fandine/id952824896"><img src="img/icn_apple2.png"/> Download on the App Store</a></li>
+                <li><a href="./download/fandine.apk"><img src="img/icn_android2.png"/> Download APK</a></li>
+            </ul>
+        </div>
+    </div> -->
+</nav>
+
+<div class="container">
+    <div class="container-fluid">
+        <div class="jumbotron" >
+            <div id="logo-text">
+                <img id="big-logo" src="img/logo@3x.png" class="img-responsive"/>
+                <div id="title-text">
+                    Connecting the world through healthy dining
+                </div>
+                <button type="button" class="redButton" onclick="openH5PreOrder()">
+                    Pre-Order Now
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="parallax" id="front-page"></div>
+
+<div class="container">
+    <div class="row marketing" id="consomer-app">
+        <div class="market-title">
+            Consumer App
+        </div>
+        <div class="market-sub-title">
+            Eat the way you want
+        </div>
+        <div class="four-things">
+            <div class="col-sm-3 col-xs-12 one-fourth">
+                <div>
+                    <img class="one-fourth-img" id="preorder-img" src="img/icn_preorder.png" srcset="img/icn_preorder.png 100w, img/icn_preorder@3x.png 300w"/>
+                </div>
+                <div class="one-fourth-text">
+                    <div class="one-fourth-title">Pre-order</div>
+                    <div class="one-fourth-desc">Worry about no free tables? Make your reservation through FanDine. Pay for
+                        your food and enjoy the service when you arrive the restaurant!
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12 one-fourth">
+                <div>
+                    <img class="one-fourth-img" id="delivery-img" src="img/icn_takeout@3x.png" srcset="img/icn_takeout.png 100w, img/icn_takeout@3x.png 300w"/>
+                </div>
+                <div class="one-fourth-text">
+                    <div class="one-fourth-title">Take-Out</div>
+                    <div class="one-fourth-desc">Don't want to wait in line for your meal anymore? Use FanDine to skip the
+                        line!
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12 one-fourth">
+                <div>
+                    <img class="one-fourth-img" id="dinein-img" src="img/icn_delivery@3x.png"/>
+                </div>
+                <div class="one-fourth-text">
+                    <div class="one-fourth-title">Delivery</div>
+                    <div class="one-fourth-desc">Too tired to pick up your order at the restaurant? Use FanDine app to place
+                        your delivery order, relax and wait for your food.
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12 one-fourth">
+                <div>
+                    <img class="one-fourth-img" id="takeout-img" src="img/icn_dinein@3x.png"/>
+                </div>
+                <div class="one-fourth-text">
+                    <div class="one-fourth-title">Dine-In</div>
+                    <div class="one-fourth-desc">Select your choice of food with our digital menu, scan QR code to notify
+                        the waiters for your order and enjoy your meal. Simple as that!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row marketing" style="margin-top: 6vh">
+        <div class="collapse navbar-collapse" id="download-arr">
+            <table>
+                <tr>
+                    <td>
+                        <a  target="_blank" href="https://play.google.com/store/apps/details?id=fandine.consumer.na&hl=en">
+                            <div class="download-div">
+                                <img src="img/google@3x.png" class="img-responsive download-img"/>
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a target="_blank" href="https://itunes.apple.com/ca/app/fandine/id952824896">
+                            <div class="download-div" style="margin-left: 12%;">
+                                <img src="img/apple@3x.png"
+                                     class="img-responsive download-img"/>
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="./download/fandine.apk">
+                            <div class="download-div" style="margin-left: 24%;">
+                                <img src="img/android@3x.png" id="android-apk"
+                                     class="img-responsive download-img"/>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="parallax" id="sushi-donut"></div>
+<div class="sticky-phone" id="display-phone"></div>
+
+<div class="container">
+    <div class="row marketing" id="scroll-mini">
+        <!--naming should be one third instead of one fourth, but this is fine i guess :) -->
+        <div class="market-title">
+            Mini App
+        </div>
+        <div class="market-sub-title">
+            Custom design for each restaurant
+        </div>
+        <div class="four-things">
+            <div class="col-sm-4 col-xs-12 one-fourth">
+                <div>
+                    <img class="one-fourth-img" src="img/icn_translate%20menu@3x.png"/>
+                </div>
+                <div class="one-fourth-text">
+                    <div class="one-fourth-title">Menu Translation</div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12 one-fourth">
+                <div>
+                    <img class="one-fourth-img" src="img/icn_save%20time@3x.png"/>
+                </div>
+                <div class="one-fourth-text">
+                    <div class="one-fourth-title">Save More Time</div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12 one-fourth">
+                <div>
+                    <img class="one-fourth-img" src="img/icn_yields@3x.png"/>
+                </div>
+                <div class="one-fourth-text">
+                    <div class="one-fourth-title">Higher Yields</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="parallax" id="mini-app"></div>
+
+<div class="container">
+    <div class="row marketing" id="scroll-server">
+        <!--naming should be one third instead of one fourth, but this is fine i guess :) -->
+        <div class="market-title">
+            Server App
+        </div>
+        <div class="market-sub-title">
+            Faster and better services
+        </div>
+        <div class="col-sm-10 market-desc">
+            Track the actions of your customers. Get notified when they want to place orders or get the bill. Gain better understanding of your customers through our data analysis, enable you to provide better and more effective services.
+        </div>
+    </div>
+</div>
+<div class="parallax" id="happy-chef"></div>
+
+<div class="container">
+    <div class="row marketing" id="about-us">
+        <!--naming should be one third instead of one fourth, but this is fine i guess :) -->
+        <div class="market-title">
+            About FanDine
+        </div>
+        <div class="col-sm-10 market-desc">
+            Founded in 2014, FanDine Technology has dedicated itself to build the best possible one-stop dining
+            experience. Our team consists of talents from both Canada and China. Throughout the past years, we have
+            been trying to help our customers to enjoy food better.
+        </div>
+    </div>
+</div>
+<div class="parallax" id="world-map"></div>
+
+ <footer>
+    <div include-html="footer.html"></div>
+    <script>
+        navbar.includeHTML();
+    </script>
+
+    <!--<div class="container">
+        <div class="row">
+            <div class="pull-right">
+                <div class="icons-left">
+                    <div class="social-icon">
+                        <a target="_blank" href="https://www.facebook.com/FanDineTechnologies/">
+                            <img class="img-thumbnail" src="img/icn_fb@3x.png"/>
+                        </a>
+                         <a id="popover" class="" rel="popover" data-content="" title="Scan QR Code" style="display: block;">
+                            <img class="img-thumbnail" src="img/icn_wechat@3x.png"/>
+                        </a>
+                        <a target="_blank" href="https://twitter.com/fandine_van">
+                            <img class="img-thumbnail" src="img/icn_tw@3x.png"/>
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/fandine.vancouver/">
+                            <img class="img-thumbnail" src="img/icn_ins@3x.png"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 32px">
+                <a href="join.html">Contact Us</a>&nbsp;|&nbsp;
+                <a target="_blank" href="https://www.indeed.com/cmp/Fandine-Technologies-Ltd./jobs">Career</a>&nbsp;|&nbsp;
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+        Copyright © 2017 FanDine Technologies Ltd. All rights reserved.
+    </div>-->
+</footer> 
+</div>
+</body>
+</html>

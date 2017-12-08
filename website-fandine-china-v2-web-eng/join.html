@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FanDine Join Us</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/ie10-viewport-bug-workaround.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jumbotron-narrow.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.3/jquery.scrollTo.min.js"></script>
+
+    <script src="./jquery.popupoverlay.js"></script>
+    <script>
+        function openH5PreOrder(event) {
+            let e = event || window.event;
+            let strWindowFeatures = "menubar=0,location=0,resizable=0,scrollbars=yes,status=no,width=414,height=736,left=" + e.screenX +",top=" + e.screenY;
+            window.open("https://m.fandine.com/", "H5PreOrder", strWindowFeatures);
+        }
+        $(function () {
+            $('#home-nav').bind('click', 'ul li a', function (event) {
+                $.scrollTo(event.target.hash, 550, {"offset": -80});
+            });
+        });
+        $(document).ready(function () {
+            var image = '<img src="./img/qrcode.jpg" style="width: 10vw;">';
+            $('#popover').popover({
+                placement: 'bottom',
+                content: image,
+                trigger: 'hover',
+                html: true
+            });
+        });
+        var limitCounter = 0;
+        function sendEmail() {
+            if (limitCounter !== 0) {
+                return;
+            }
+            limitCounter++;
+            var message = $('#message').val();
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var company = $('#company').val();
+            $.ajax({
+                'type': "POST",
+                'url': 'https://restaurant.fandine.com/v1/feedbacks',
+                'headers': {},
+                'data': {
+                    "content": "Name: " + name + '.  Company: ' + company + '.  Message: ' + message,
+                    "contacts": email
+                },
+                'success': function (data) {
+                    alert('Thank you for contacting us, your message has been sent!');
+                    $('#message').val('');
+                    $('#name').val('');
+                    $('#email').val('');
+                    $('#company').val('');
+                    limitCounter = 0;
+                },
+                'error': function (err) {
+                    alert('Sorry, something went wrong, please try again');
+                    limitCounter = 0;
+                }
+            });
+
+        }
+        var limitCounterTwo = 0;
+        function applyJoin() {
+            if (limitCounterTwo !== 0) {
+                return;
+            }
+            var phone = $('#rest-number').val();
+            var restAddr = $('#rest-addr').val();
+            var restEmail = $('#join-email').val();
+            var restName = $('#rest-name').val();
+            var fistName = $('#fist-name').val();
+            var lastName = $('#last-name').val();
+            $.ajax({
+                'type': "POST",
+                'url': 'https://restaurant.fandine.com/v1/feedbacks',
+                'headers': {},
+                'data': {
+                    "content": "Fist Name: " + fistName + '.  LastName: ' + lastName + '.  Restaurant Name: ' + restName +
+                    '.  Restaurant Address: ' + restAddr + '.  Restaurant Phone: ' + phone,
+                    "contacts": restEmail
+                },
+                'success': function (data) {
+                    alert('Thank you for contacting us, your application has been sent!');
+                    $('#rest-number').val('');
+                    $('#rest-addr').val('');
+                    $('#join-email').val('');
+                    $('#rest-name').val('');
+                    $('#fist-name').val('');
+                    $('#last-name').val('');
+                    limitCounterTwo = 0;
+                },
+                'error': function (err) {
+                    alert('Sorry, something went wrong, please try again');
+                    limitCounterTwo = 0;
+                }
+            });
+        }
+    </script>
+    
+    <script src="js/navbar.js"></script>
+</head>
+<body data-spy="scroll" data-target="#homePageNavBar" data-offset="82">
+<div id="scroll-join"></div>
+<nav class="navbar navbar-default navbar-fixed-top" id="home-nav">
+    <div include-html="navbar.html"></div>
+    <script>
+        navbar.includeHTML();
+    </script>
+    <!-- <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <!--<div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse"
+                    data-target="#homePageNavBar" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#DownloadNavBar"
+                    aria-expanded="false" id="download-button">
+                DOWNLOAD
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="homePageNavBar">
+            <a class="navbar-brand thumbnail hidden-xs" href="#"><img id="small-logo" src="img/FD_logo@3x.png"/></a>
+            <ul class="nav navbar-nav navbar-right navbar-a">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#consomer-app">Download</a></li>
+                <li><a href="#" onclick="openH5PreOrder()">Pre-Order</a></li>
+                <li><a target="_blank" href="https://blog.fandine.com">News</a></li>
+                <li class="active"><a href="join.html">Become Partner</a></li>
+                <li><a target="_blank" href="https://ownerweb.fandine.com">Owner Web</a></li>
+                <li id="translate-li"><a href="join_zh.html" id="translate-a"><img class="img-responsive"
+                                                                                   id="translate-img"
+                                                                                   src="img/translate_e@3x.png"/></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="hidden-lg hidden-md hidden-sm">
+        <div class="collapse navbar-collapse" id="DownloadNavBar">
+            <ul class="nav navbar-nav navbar-right c-download">
+                <li><a href="https://play.google.com/store/apps/details?id=fandine.consumer.na&hl=en"><img src="img/icn_google2.png"/> Download on the Google play</a></li>
+                <li><a href="https://itunes.apple.com/ca/app/fandine/id952824896"><img src="img/icn_apple2.png"/> Download on the App Store</a></li>
+                <li><a href="./download/fandine.apk"><img src="img/icn_android2.png"/> Download APK</a></li>
+            </ul>
+        </div>
+    </div> -->
+</nav>
+<div class="transparent-background"></div>
+<div class="row marketing">
+    <div class="col-xs-12 col-sm-7 parter-container">
+        <div class="market-title">
+            Partner
+        </div>
+        <div class="market-desc">
+            Become one of our partnered restaurants, and run your business to its full potential!
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="col-xs-6 col-sm-3 partner-img-container">
+        <img class="partner-img" src="img/1.png"/>
+    </div>
+    <div class="col-xs-6 col-sm-3 partner-img-container">
+        <img class="partner-img" src="img/2.png"/>
+    </div>
+    <div class="col-xs-6 col-sm-3 partner-img-container">
+        <img class="partner-img" src="img/3.png"/>
+    </div>
+    <div class="col-xs-6 col-sm-3 partner-img-container">
+        <img class="partner-img" src="img/4.png"/>
+    </div>
+    <!--
+    <div class="col-xs-6 col-sm-3 partner-img-container">
+        <img class="partner-img" src="img/5.png"/>
+    </div>
+    -->
+    <div class="col-xs-6 col-sm-3 partner-img-container">
+        <img class="partner-img" src="img/6.png"/>
+    </div>
+    <div class="col-xs-6 col-sm-3 partner-img-container">
+        <img class="partner-img" src="img/7.png"/>
+    </div>
+    <div class="col-xs-6 col-sm-3 partner-img-container">
+        <img class="partner-img" src="img/8.png"/>
+    </div>
+</div>
+<div class="row marketing" id="click-container">
+    <!--naming should be one third instead of one fourth, but this is fine i guess :) -->
+    <div class="market-title" id="join-fandine">
+        Join FanDine
+    </div>
+    <div class="market-desc col-xs-12 col-sm-7 join-desc">
+        Join our amazing new dining revolution. Click to apply below and a representative will get in touch with you as
+        soon as possible.
+    </div>
+    <div class="clearfix"></div>
+    <div class="four-things">
+        <div class="col-sm-3 col-xs-12 one-fourth">
+            <div>
+                <img class="one-fourth-img" src="img/icn%20_target@3x.png"/>
+            </div>
+            <div class="one-fourth-text">
+                <div class="market-desc join-desc">Better consumer target</div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-xs-12 one-fourth">
+            <div>
+                <img class="one-fourth-img" src="img/icn_consumer@3x.png"/>
+            </div>
+            <div class="one-fourth-text">
+                <div class="market-desc join-desc">Better consumer service</div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-xs-12 one-fourth">
+            <div>
+                <img class="one-fourth-img" src="img/icn_date%20analysis@3x.png"/>
+            </div>
+            <div class="one-fourth-text">
+                <div class="market-desc join-desc">Better data analysis</div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-xs-12 one-fourth">
+            <div>
+                <img class="one-fourth-img" src="img/icn_better%20market@3x.png"/>
+            </div>
+            <div class="one-fourth-text">
+                <div class="market-desc join-desc">Better marketing method</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row marketing" id="opener-container">
+    <button class="apply-button my_popup_open" id="opener">CLICK TO APPLY</button>
+</div>
+<div class="contact-container">
+    <div class="contact-row row">
+        <div class="contact-title">
+            Contact FanDine
+        </div>
+        <div class="contact-detail-container">
+            <div class="contact-detail-desc">
+                Address: 1268-1111 W Hasting Street, Vancouver BC, V6E 2J3
+            </div>
+            <div class="contact-detail-desc" style="margin-top: 5px;">
+                EMAIL: info@fandine.com
+            </div>
+            <div class="contact-detail-desc" style="margin-top: 5px;">
+                TEL: 778-379-1799 | FAX: 778-379-1798
+            </div>
+        </div>
+        <div class="icon-container row">
+            <div class="row col-xs-8 icons-left">
+                <div class="col-xs-3 social-icon">
+                    <a target="_blank" href="https://www.facebook.com/FanDineTechnologies/">
+                        <img class="" src="img/icn_fb@3x.png"/>
+                    </a>
+                </div>
+                <div class="col-xs-3 social-icon">
+                    <a id="popover" class="" rel="popover" data-content="" title="Scan QR Code" style="display: block;">
+                        <img class="" src="img/icn_wechat@3x.png"/>
+                    </a>
+                </div>
+                <div class="col-xs-3 social-icon">
+                    <a target="_blank" href="https://twitter.com/fandine_van">
+                        <img class="" src="img/icn_tw@3x.png"/>
+                    </a>
+                </div>
+                <div class="col-xs-3 social-icon">
+                    <a target="_blank" href="https://www.instagram.com/fandine.vancouver/">
+                        <img class="" src="img/icn_ins@3x.png"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 white-hr"></div>
+        <div class="clearfix"></div>
+        <div class="container-fluid" id="got-question">
+            Got a question or comment? Send us a message.
+        </div>
+        <div class="row" id="contact-form">
+            <p id="failure">Oops...message not sent.</p>
+            <p id="success">Your message was sent successfully. Thank you!</p>
+            <form action="javascript:sendEmail();">
+                <div class="col-xs-12 col-sm-6 contact-input">
+                    <label for="name">
+                        <span class="required">Name*</span>
+                        <input type="text" id="name" name="name" value="" placeholder="Your Name" required="required"
+                               tabindex="1"/>
+                    </label>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-12 col-sm-6 contact-input">
+                    <label for="email">
+                        <span class="required">Email*</span>
+                        <input type="email" id="email" name="email" value="" placeholder="Your Email" tabindex="2"
+                               required="required"/>
+                    </label>
+                </div>
+                <div class="col-xs-12 col-sm-6 contact-input">
+                    <label for="company">
+                        <span class="required">Company</span>
+                        <input type="text" id="company" name="company" value="" placeholder="Company Name" required=""
+                               tabindex="3"/>
+                    </label>
+                </div>
+                <div class="col-xs-12 col-sm-12 contact-input">
+                    <label for="message">
+                        <span class="required">Message*</span>
+                        <textarea id="message" name="message" placeholder="Please write your message here." tabindex="4"
+                                  required="required"></textarea>
+                    </label>
+                </div>
+                <div>
+                    <button class="submit-button" name="submit" type="submit" id="submit" onclick="">SEND
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="my_popup">
+    <div class="row marketing">
+        <div class="clearfix"></div>
+        <div class="row" id="join-form">
+            <button class="my_popup_close close" id="close-pop" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <form action="javascript:applyJoin();">
+                <div class="container-fluid join-title">
+                    Join FanDine
+                </div>
+                <div class="col-xs-12" id="black-hr"></div>
+                <div class="container-fluid join-sub-title" style="margin-top: 4vh; margin-bottom: 1vh;">
+                    Manager Info
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <label for="fist-name">
+                        <span class="required">First Name*</span>
+                        <input type="text" id="fist-name" name="first-name" value="" placeholder="" required="required"
+                               tabindex="5"/>
+                    </label>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <label for="last-name">
+                        <span class="required">Last Name*</span>
+                        <input type="text" id="last-name" name="last-name" value="" placeholder="" required="required"
+                               tabindex="6"/>
+                    </label>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-12 col-sm-12">
+                    <label for="join-email">
+                        <span class="required">Email*</span>
+                        <input type="email" id="join-email" name="join-email" value="" placeholder="" tabindex="7"
+                               required="required"/>
+                    </label>
+                </div>
+                <div class="container-fluid join-sub-title" style="margin-bottom: 1vh;">
+                    Restaurant Info
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                    <label for="rest-name">
+                        <span class="required">Name*</span>
+                        <input type="text" id="rest-name" name="rest-name" value="" placeholder="" required="required"
+                               tabindex="8"/>
+                    </label>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                    <label for="rest-addr">
+                        <span class="required">Address*</span>
+                        <input type="text" id="rest-addr" name="rest-addr" value="" placeholder="" required="required"
+                               tabindex="9"/>
+                    </label>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                    <label for="rest-number">
+                        <span class="required">Phone Number*</span>
+                        <input type="number" id="rest-number" name="rest-number" value="" placeholder="" tabindex="10"
+                               required="required"/>
+                    </label>
+                </div>
+                <div class="join-agree col-xs-12">
+                    By clicking submit, you are agreeing to the <a class="agree-content_open"> FanDine End User License
+                    Agreement.</a>
+                    You also give consent to FanDine to engage your establishment, work with your staff to create your
+                    restaurant profile, and prepare for launching on the FanDine platform.
+                </div>
+                <div>
+                    <button class="apply-button" name="submit" type="submit" id="join-submit">SUBMIT
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="agree-content-container" id="agree-content">
+        <div class="container" id="agree-inner-container">
+            <button class="apply-button agree-content_close">BACK
+            </button>
+            <div id="agree-title">
+                FanDine Technologies Ltd.
+            </div>
+            <b>1. Welcome</b>
+            <br>1.1 Welcome and thank you for using the FanDine application by FanDine Technologies Ltd (“FanDine”). The
+            purpose of this agreement (the “Agreement”) is to set out the terms and conditions (the “Terms”) governing
+            the use of the App and the relationship between FanDine and the User. The Terms apply to the use of the App
+            by any User for use by any electronic computing device and mobile computing device, including but not
+            limited to, smart phones and tablet, laptop and desktop computers and the FanDine website at <a
+                href="http://www.fandine.com">http://www.fandine.com</a> and all affiliated websites owned and operated
+            by FanDine Technologies Ltd (the “Website” or “Site”). The User acknowledges that the User has read,
+            understood and agrees to be bound by the Terms.
+            <br>1.2 For the purposes of the Agreement,
+            <br>(a) “Account” means the FanDine account created by the User to access and use the Services;
+            <br>(b) “App” means the FanDine software application for the Services or any part thereof
+            <br>(c) “Establishment” or “Establishments” means the corporate entity or person that is authorized to
+            operate restaurants, bars or any type of dining business for which the Services are sought and that has an
+            account registered with FanDine for use of the Services;
+            <br>(d) “Establishment Terms” means the agreement between an Establishment and FanDine for use of the
+            Services;
+            <br>(e) “FanDine Wallet” or “Wallet” means the account held by FanDine on the Services into which the User
+            may transfer a specified amount of the Monetary Unit;
+            <br>(f) “Monetary Unit”, “Monetary Units” or “MU” means with respect to the location of the use of the
+            Services by the User as specified during the User’s creation of the Account, one Canadian dollar if the
+            Services are being used in Canada; or one United States dollar if the Services are being used in the United
+            States of America or elsewhere;
+            <br>(g) “Product” or “Products” means goods or services, or both, provided by an Establishment;
+            <br>(h) “Promotional Product” means any product or service, or both, that is offered on the Services by an
+            Establishment to a Referrer and that provides a reward to the Referrer if the Referee purchases the product
+            or service, or both, after the Referrer has purchased the product or service, or both;
+            <br>(i) “Referee” means any person who is invited, using the Services, by the Referrer to use the Services
+            or purchase the Promotional Products and who begins using the Services or purchases the Promotional Products
+            pursuant to the invitation of the Referrer;
+            <br>(j) “Referrer” means the User when the User invites any person, using the Services, to use the Services
+            or to purchase Promotional Products and who is appointed as the Referrer of and by that person;
+            <br>(k) “Restaurant Credit” or “Restaurant Credits” means the rewards provided by FanDine to the User for
+            using the Services. Restaurant Credits have no monetary value whatsoever and cannot under any circumstances
+            form the basis of a monetary claim against FanDine;
+            <br>(l) “Services” means the use of the App and/or the Website for the purposes specified in Section 3.2;
+            and
+            <br>(m) “User” means any person who is accessing or using the App in any way or that has clicked “accept” or
+            “agree” to the Terms.
+            <br>1.3 The User must read the Terms carefully. Use of the Services is subject to the Terms, including the
+            Privacy Policy. FanDine may modify the Terms, including the Privacy Policy, at any time, and such
+            modifications shall be effective immediately upon posting the modified Terms and Privacy Policy on the
+            Services. The User agrees to review the Terms regularly to be aware of such modifications, and the User’s
+            accessing or use of the Services constitutes the User’s acceptance of the Terms as it appears at the time of
+            the User’s access or use. From time to time, FanDine may offer the User the opportunity to participate in
+            additional features or services through the App or Website. The User may be required to enter into
+            additional agreements, authorizations or terms before the User can access such features or services.
+            <br><br><b>2. Eligibility</b>
+            <br>2.1 By accessing the Services, the User represents and warrants to FanDine that the User has the right,
+            authority and capacity to agree to and abide by the Terms, and the User will use the Services in a manner
+            consistent with any and all applicable laws and regulations.
+            <br>2.2 By accepting the Terms, the User is given a limited right and permission to use the Services subject
+            to any limitations, conditions and restrictions established by FanDine from time to time, in FanDine’s sole
+            discretion. FanDine may alter, suspend or discontinue any aspect of the Services at any time, including the
+            availability of any feature, database or content of or on the Services. FanDine may also impose limits on
+            certain features and aspects of the Services or restrict the User’s access to parts or all of the Services
+            without notice or liability and for any reason.
+            <br><br><b>3. FanDine Services</b>
+            <br>3.1 FanDine provides the Services to the User for the purpose of enhancing the User’s dining experience
+            by assisting the User in securing dining reservations at and communicating with Establishments. FanDine
+            connects the User to Establishments, allows the User to share the User’s dining experiences with friends,
+            and rewards the User with Restaurant Credits the first time a friend that the User referred dines at a
+            participating Establishment.
+            <br>3.2 The Services provide the User with the ability to:
+            <br>(a) access and obtain the Products, including by:
+            <br>(i) searching for an Establishment or browsing a list of Establishments,
+            <br>(ii) communicating with an Establishment,
+            <br>(iii) accessing details of the Products,
+            <br>(iv) making a reservation,
+            <br>(v) receiving notifications from an Establishment,
+            <br>(vi) placing an order,
+            <br>(vii) specifying a dietary preference,
+            <br>(viii) making a payment,
+            <br>(ix) obtaining a reward,
+            <br>(x) making a recommendation, and
+            <br>(xi) rating an Establishment,
+            <br>(b) refer FanDine to a friend,
+            <br>(c) be rewarded for referring a Product or an Establishment to a friend,
+            <br>(d) access promotions and discount codes provided by an Establishment, and
+            <br>(e) review the User’s activity on the Services, including invoices.
+            <br>3.3 Consent to Display. The User understands and agrees that any content that the User submits, posts or
+            displays on the Services will be visible by other Users and Establishments of the Services and through third
+            party services and websites.
+            <br><br><b>4. Account</b>
+            <br>4.1 The User must create an Account by providing the information requested by FanDine in order to access
+            some or all of the features on the Services.
+            <br>4.2 FanDine Accounts and membership is limited to natural persons and no corporation, trust, partnership
+            or other entity may hold a FanDine User Account.
+            <br>4.3 The User will be issued a FanDine user name and password to use the Services. The User is solely
+            responsible for protecting the User’s FanDine user name and password. FanDine is not liable for any claims,
+            losses, actions, damages, suits or proceedings relating to the sharing of the User’s name and password with
+            others. The User agrees to notify FanDine immediately after the User becomes aware of any unauthorized use
+            of the User’s Account, name and password, and to take such reasonable steps as are necessary to prevent any
+            reoccurrence of such event.
+            <br>4.4 Restaurant Credits or any other rewards or any other benefits are personal and cannot be assigned,
+            traded, willed or otherwise transferred, other than as expressly provided herein, and any assignment or
+            transfer in violation of these Terms will be void and may, at the discretion of FanDine, result in the loss
+            of membership and Account or the cancellation of the affected reward, benefit or Restaurant Credits, as the
+            case may be.
+            <br><br><b>5. Third Party Charges</b>
+            <br>5.1 The User understands and acknowledges that using the Services is at the User’s risk. The User is
+            responsible for any and all fees or charges, or both, that arise out of the User’s use of the Services,
+            including but not limited to the fees and charges associated with the User’s wireless carrier. The User must
+            contact the User’s wireless carrier and any other applicable service provider directly for more details.
+            <br>5.2 The User is responsible for determining whether the User’s wireless carrier supports text messaging
+            and if the User’s mobile device is capable of receiving text messages. The User understands that the User’s
+            wireless carrier's standard data and text messaging fees may apply.
+            <br><br><b>6. FanDine Wallet</b>
+            <br>6.1 Prepayment for Products. The User may transfer a specified amount of the Monetary Unit into the
+            Wallet to make future purchases at participating Establishments. The Monetary Unit that the User transfers
+            into the Wallet is prepayment only for Products at participating Establishments. No credit card, credit
+            line, overdraft, protection or deposit account will be associated with the Wallet. Unless otherwise required
+            by law or permitted by the Agreement, any dollar amount or Monetary Unit in the User’s Wallet is
+            non-returnable and non-refundable and cannot be redeemed for cash. No interest, dividends or any other
+            earnings on the Monetary Unit in the Wallet will accrue or be paid or credited to the User by FanDine. The
+            Monetary Unit in the User’s Wallet is not insured by FanDine in any way.
+            <br>6.2 Credit Card Transfer. The User may transfer a specified amount of the Monetary Unit into the Wallet
+            using a credit card on the App. The User must transfer a minimum amount of $5 in the Monetary Unit into the
+            Wallet. The User may not transfer more than $500 in the Monetary Unit into the Wallet. FanDine may change
+            the minimum and maximum values that may be loaded into the Wallet at any time.
+            <br>The User may have a specified amount of the Monetary Unit automatically reloaded in the Monetary Unit
+            into the Wallet by using the automatic reload feature on the App and specifying a payment frequency and
+            amount (“Automatic Reload”). The User may link a credit card to the App to reload a specified amount of the
+            Monetary Unit into the Wallet at any time. The User’s credit card will be billed in accordance with the
+            payment frequency and amount selected by the User. FanDine will notify the User electronically after each
+            Automatic Reload of the amount that was transferred into the Wallet. The User may change the User’s payment
+            preferences at any time. If the User wishes to discontinue the Automatic Reload feature, the User must
+            disable the feature on the App within 24 hours of the next scheduled reload. Once the Monetary Unit has been
+            transferred into the Wallet, the transaction cannot be reversed.
+            <br>6.3 Making a Payment. The User may use the Monetary Unit loaded into the Wallet to pay for the Products
+            at participating Establishments. The balance of any payment made at the point-of-sale at the Establishment
+            will immediately be deducted from the User’s Wallet.
+            <br>6.4 Account Balance and Expiration. The User may check the balance of the Wallet on the User’s Account.
+            The Monetary Unit transferred into the Wallet will not expire during the term of the Agreement.
+            <br>6.5 Receipt. The User may request a receipt from the Establishment at the point-of-sale when the User
+            purchases a Product from the Establishment using the Wallet. The receipt will indicate that the User used
+            funds from the Wallet to make the purchase.
+            <br>6.6 Liability. The User is responsible for any and all transactions associated with the User’s Wallet.
+            If the User becomes aware that unauthorized use of the User’s account is being made, the User must contact
+            FanDine immediately. Upon notification from the User that unauthorized use of the User’s account is being
+            made, FanDine will attempt to freeze the User’s account to prevent ongoing use of the User’s account.
+            FanDine reserves the right to limit or terminate the User’s use of the Services if FanDine reasonably
+            believes that the use is unauthorized, fraudulent or otherwise unlawful.
+            <br>6.7 Bill Errors and Corrections. FanDine may correct the balance of the User’s Wallet if FanDine
+            believes that a clerical, billing or accounting error has occurred. The User should contact FanDine directly
+            if the User has any questions regarding the User’s transaction history or any correction that has been made.
+            <br>6.8 Disclaimer. FanDine does not represent or warrant that any or every Establishment will accept
+            payment for the Products from the User’s Wallet. The User must contact the Establishment directly to confirm
+            that the Establishment will accept payment on the Services.
+            <br>6.9 Transfers. The User may transfer as a gift the Monetary Units held by the User in the Wallet to any
+            other User on the Services at a rate of 1 Monetary Unit for 1 Monetary Unit transferred. Upon instructions
+            from an authorized representative, FanDine may transfer as a gift the Monetary Units held by the User in the
+            Wallet to another User of the Services.
+            <br>6.10 Conversions
+            <br>6.10.1 Conversion of Restaurant Credits. The User may convert Restaurant Credits into the Monetary Unit
+            on the Services at the following fixed exchange rate (the “Transfer Exchange Rate”):
+            <br>Purchase rate by FanDine: 1 Restaurant Credit = 0.9 Monetary Units
+            <br>Sell rate by User to another User: 1 Restaurant Credit = 0.8 Monetary Units
+            <br>The User may sell any Restaurant Credits held by the User to any other User on the Services in exchange
+            for Monetary Units at the Transfer Exchange Rate.
+            <br>6.10.2 Conversion of the Monetary Unit. All amounts loaded into the Wallet are held and denominated in
+            the currency of the country in which the Services are being used, as specified by the User upon creation of
+            the Account. When the User makes a purchase at an Establishment in a different country using the Services,
+            the total amount is converted from the currency of that country into the currency of the Monetary Unit and
+            deducted from the Wallet. The actual balance in the Wallet following the conversion will be in the Monetary
+            Unit. Currency conversions are based on currency exchange rates applicable on the date of the transaction.
+            <br><br><b>7. Restaurant Credits Rewards Program</b>
+            <br>7.1 Redemption. The User will be able to participate in the Restaurant Credits rewards program that
+            rewards the User with Restaurant Credits that can be redeemed to pay the charges by the Establishment (the
+            “Bill”) for the Products provided by the Establishment. Restaurant Credits can only be redeemed at and by
+            the Establishment up to value in Restaurant Credits awarded by the Establishment pursuant to the
+            Establishment Terms to the User and during the specific hours of business operation allocated for redemption
+            by the Establishment (“Redemption Period”). Other restrictions may apply to the redemption of the Restaurant
+            Credits. The User must contact the Establishment directly and before dining to determine the Redemption
+            Period that applies to that Establishment and whether any other restrictions apply. Restaurant Credits may
+            be redeemed every day that the Establishment is open for business to the public and during the Redemption
+            Period established by the Establishment.
+            <br>7.2 Restaurant Credits. Restaurant Credits is a loyalty reward program operated by FanDine. The
+            accumulation of Restaurant Credits does not entitle the User to any vested rights and, in accumulating
+            Restaurant Credits, the Users may not rely upon the continued availability of any award, reward,
+            award/reward level, premium, privilege or other benefit.
+            <br>Restaurant Credits have no monetary value whatsoever and cannot under any circumstances form the basis
+            of a monetary claim against FanDine. Restaurant Credits are not replaceable or redeemable for cash, other
+            than as provided in the Terms. The User may transfer as a gift any Restaurant Credits held by the User to
+            any other User on the Services at a rate of 1 Restaurant Credit for 1 Restaurant Credit transferred.
+            <br>FanDine specifically reserves the right to amend, alter, withdraw or terminate the Restaurant Credits
+            program (in whole or in part), any program, benefit, award, reward, award/reward level, premium or privilege
+            or these rules either with or without notice. Any such changes may affect Restaurant Credits which a User
+            has already accumulated as well as any future accumulation of Restaurant Credits.
+            <br>7.3 The User may redeem Restaurant Credits at the Establishment that issued the Restaurant Credits to
+            the User in part payment of a percentage of the value of the User’s Bill. Each Establishment may choose the
+            percentage of the value of the Bill to which that Establishment will accept part payment in Restaurant
+            Credits. The User must contact the Establishment directly to determine the percentage that will be accepted
+            by that Establishment as part payment of a Bill and whether any other restrictions will apply.
+            <br>7.4 Restaurant Credits may be redeemed, traded or exchanged by the User in accordance with the terms
+            specified by FanDine.
+            <br>7.5 FanDine will not issue Restaurant Credits to the User until the Bill has been paid. The User will
+            not be eligible to receive Restaurant Credits if the User does not pay the Bill. The User will not be
+            eligible to receive Restaurant Credits if the User’s purchase does not originate on the Services. Restaurant
+            Credits are non-returnable and non-refundable. Restaurant Credits may never be redeemed or exchanged for
+            cash or used outside the scope of the Services.
+            <br>7.6 FanDine has the right to regulate or modify and eliminate Restaurant Credits in FanDine’s sole and
+            absolute discretion at any time and without notice to the User, including but not limited to termination of
+            the Establishment’s participation in the Services or in any other circumstance beyond the control of
+            FanDine. FanDine shall have no liability in connection with the exercise of this right.
+            <br><br><b>8. Restaurant Credits Referrals Program</b>
+            <br>8.1 Eligibility. The User may be eligible to participate in the Restaurant Credits referrals program
+            that allows the User to refer new Users or Establishments to FanDine, refer existing Users to Establishments
+            and refer existing Users to Products at particular Establishments.
+            <br>8.2 First Visit Reward. The User will receive a 5% discount on the User’s Bill when the User uses the
+            Services to purchase Products at any Establishment for the first time.
+            <br>8.3 Appointment of Referrer by Referee
+            <br>(a) For the Referrer to be eligible to receive a Referral Reward, the Referee must appoint the Referrer
+            as the person who referred FanDine to the Referee when the Referee is creating the new Account.
+            <br>(b) The Referrer will not be eligible to receive the Referral Reward if the Referee’s purchase does not
+            originate on the Services.
+            <br>(c) Once a Referee appoints a Referrer on the Services, the appointment of the Referrer is indefinite
+            and cannot be changed, except the Referee may be eligible to appoint a new person as Referrer in the
+            following circumstances:
+            <br>(i) If the original Referrer is deceased;
+            <br>(ii) If the original Referrer terminates the Referrer’s Account and use of the Services; or
+            <br>(iii) If the Referee makes a request to FanDine to appoint a new person as Referrer and FanDine, in its
+            sole discretion, agrees with the reason for the request.
+            <br>(d) If any of the exceptions in Section 8.3(c) arise, the Referee may be eligible to appoint a new
+            Referrer. FanDine is under no obligation pursuant to Section 8.3(c) to allow the Referee to appoint a new
+            person as Referrer.”
+            <br>8.4 Referring a new User to FanDine. When the User refers a new User to FanDine, the User may be
+            eligible to receive a reward (“Referral Reward”) after the Referee purchases a Product or Products from any
+            Establishment using the Services and pays a Bill of a minimum $10.00 at that Establishment. The Referral
+            Reward is valid on the Referee’s first purchase of a Product at any Establishment using the Services.
+            <br>If the Referee makes a total purchase of $10.00 to $19.99 before taxes, the Referrer will be issued 0.50
+            Restaurant Credits as a Referral Reward. If the Referee makes a total purchase of $20.00 or more before
+            taxes, the Referrer will be issued 1 Restaurant Credit as a Referral Reward.
+            <br>The Restaurant Credits may be subject to certain conditions of use by the Establishment, including but
+            not limited to a Redemption Period. The User must contact the Establishment directly to confirm any
+            conditions imposed by the Establishment on the terms of use of the Restaurant Credits prior to dining at the
+            Establishment.
+            <br>8.5 Referring a new Establishment to FanDine. The User may be eligible to receive a Referral Reward for
+            referring an Establishment to FanDine that enters into an agreement for use of the Services by FanDine.
+            <br>8.6 Referring an existing User to an Establishment or Product. The User may be eligible to receive a
+            Referral Reward for referring a User to an Establishment or if the User purchases a Promotional Product. If
+            the User uses the Services to purchase a Promotional Product, then refers the Promotional Product to a
+            Referee who subsequently purchases the Promotional Product, the User may, as Referrer, be eligible to
+            receive a reward in Restaurant Credits. The Establishment may implement rules or regulations relating to a
+            Promotional Product. The User must contact the Establishment directly to determine whether any rules or
+            regulations apply to the Promotional Product.
+            <br><br><b>9. Ordering</b>
+            <br>9.1 The User may use the Services to order Products from an Establishment to pick up and take away or to
+            consume at the Establishment. The Establishment may require a deposit as partial or full payment of the
+            Bill. If the User fails to pick up the Products or to show up at the Establishment, the User’s Payment may
+            be forfeited to the Establishment.
+            <br>9.2 FanDine is not a party to any transaction between the User and the Establishment. The User must
+            contact the Establishment directly to determine any applicable terms or conditions, or both, relating to
+            refunds, cancellation, or deposits imposed by the Establishment.
+            <br><br><b>10. Ratings</b>
+            <br>10.1 Subject to the Code of Conduct below, the User may submit ratings on a 5 star scale and submit
+            reviews of an Establishment on the Services after having paid a Bill for an order made through the Services.
+            If the User rates an Establishment with 3 to 5 stars, the rating will immediately become visible to other
+            Users on the Services. If the User rates an Establishment with 1 to 2 stars, the Establishment will have an
+            opportunity to comment on the rating before the rating becomes visible to other Users on the Services.
+            <br><br><b>11. No Representations Or Warranty</b>
+            <br>11.1 While FanDine strives to keep all content current and correct, FanDine makes no representations or
+            warranties of any kind, express or implied, about the completeness, accuracy, reliability or suitability of
+            information, products, services, or related graphics contained here or on any of the websites listed.
+            FanDine will not be liable in any way and to any person for the access or use of the Services, including,
+            but not limited to errors or omissions in any information sources.
+            <br>11.2 The User may make a reservation, order Products, instant message and otherwise communicate with the
+            User representing the Establishment, or communicate with other Users or third parties using the Services.
+            FanDine is not a party to any such transaction or communication. FanDine is not responsible for the failure
+            of an Establishment to participate in or respond to the User’s requests pursuant to the use of the Services.
+            FanDine provides a platform for the Services to be accessed by Establishments and Users. FanDine is not
+            responsible for a failure of an Establishment or a User to use the Services effectively or as required by
+            the Terms.
+            <br>11.3 FanDine does not investigate or verify the content of the menu of or products or services provided
+            by any Establishment and shall not be responsible for any representations and warranties made by any
+            Establishment on the Services.
+            <br>11.4 FanDine does not warrant, endorse or make any representations with respect to any content created
+            and displayed by any User or Establishment on the Services. The Services may contain links to third party
+            websites. These links are provided for the User’s convenience and are not an endorsement by FanDine of the
+            content on the third party websites.
+            <br><br><b>12. Code Of Conduct</b>
+            <br>12.1 The User agrees to use the Services in accordance with the following Code of Conduct:
+            <br>(a) The User will not use the Services to engage in any form of harassment or offensive behaviour,
+            including but not limited to the posting of communications, pictures or recordings which contain libellous,
+            slanderous, abusive or defamatory statements, or racist, pornographic, obscene, or otherwise offensive
+            language.
+            <br>(b) The User will not post, promote or distribute information that is unlawful, obscene, defamatory,
+            threatening, harassing, abusive, slanderous, hateful or embarrassing to any other person or entity.
+            <br>(c) The User will not use the Services to infringe the privacy rights, intellectual property rights, or
+            any other rights of any person.
+            <br>(d) The User will not use the Services in any manner that impersonates or otherwise misrepresents
+            affiliation, connection or association with, any person or entity.
+            <br>(e) The User will not use the Services to promote or enable illegal or unlawful activities, such as
+            instructions on how to make or buy illegal weapons or drugs, violate someone's privacy, harm or harass
+            another person, obtain others' identity information, create or disseminate computer viruses, or circumvent
+            copy-protect devices.
+            <br>(f) The User will not forward chain letters, junk mail or spam e-mails through the Services.
+            <br>(g) The User will not use the Services in any manner intended to defraud, swindle or deceive any person
+            or entity, including other Users of the Services.
+            <br>(h) The User will not use the Services to access or disseminate another person's personal Information.
+            <br>(i) The User will not use the Services to distribute or upload any virus, or malicious software of any
+            type, or do anything else that might interfere with the proper functioning of the Services, or cause injury
+            to FanDine, the computer network or systems, or any other Users' systems in any way.
+            <br>(j) The User will not cause the Services to be accessed through any automated or robotic means,
+            including but not limited to scripts, bots, other automated, or rapid access of the site as in a
+            denial-of-service attack. Such restriction shall not apply to legitimate search engine activity that does
+            not place an unreasonable burden on the Services.
+            <br>(k) The User will not harass, annoy, intimidate or threaten any employee or agent engaged in providing
+            any portion of the Services to the User.
+            <br>(l) If the User uses any part of the Services requiring secure access, the User is responsible for
+            maintaining the confidentiality of the User’s Account and password and for restricting access to the User’s
+            computer, and the User agrees to accept responsibility for all activities that occur under the User’s
+            Account or password.
+            <br>(m) The user may not modify, post, reproduce, distribute, copy, publish, display, transmit, adapt or in
+            any way exploit the contents of the Services or the Site. The User will use the Services and Site and any
+            contents of the Services or Site solely for lawful purposes.
+            <br>(n) The User may not use spiders, robots, data mining techniques or other automated devices or programs
+            to catalog, download or otherwise reproduce, store or distribute available content. The User may not take
+            any action to interfere with, or disrupt, the App, Services or the Site or its content, circumvent security
+            measures or attempt to exceed the limited authorization and access granted to the user under the Terms. No
+            permission is given to the User to link or provide references to Services or Site and to use any of
+            FanDine's intellectual property rights, including trademarks and trade names to provide such links or
+            references, unless the User has written agreement with FanDine’s permission.
+            <br><br><b>13. Privacy Policy and Consent To Use Of Data</b>
+            <br>13.1 Privacy Policy. The Privacy Policy describes the practices of FanDine with respect to collection,
+            use, storage and disclosure of personal information provided to FanDine by Users of the Services. This
+            Privacy Policy forms an integral part of the Terms.
+            <br>FanDine respects and uphold individual rights to privacy and the protection of personal information.
+            FanDine knows how important it is to protect the User’s personal information and want to make every User
+            experience safe and secure. In keeping with that goal, FanDine has developed the Privacy Policy to explain
+            FanDine’s practices for the collection, use, and disclosure of the User’s personal information. FanDine will
+            only collect, use or disclose the User’s personal information in accordance with this Privacy Policy and all
+            laws applicable to the collection, use and disclosure of such information. When the User chooses to provide
+            FanDine with the User’s personal information, the User consents to the use of the User’s personal
+            information as identified in the Privacy Policy.
+            <br>The User must refer to the Privacy Policy for more details.
+            <br>13.2 Consent to Use of Data. The User agrees that FanDine may collect and use technical data and related
+            information, including but not limited to, technical information about the User’s device, system and
+            application software, and peripherals, that is gathered periodically to facilitate the provision of software
+            updates, product support and other services to the User, if any, related to the Services. FanDine may use
+            this information, as long as it is in a form that does not personally identify the User, to improve its
+            products or to provide services or technologies to the User.
+            <br>13.3 Sharing the User’s Content and Information. The User owns all of the content and information the
+            User posts on FanDine and the User can control how it is shared through the User’s privacy and application
+            settings. In addition:
+            <br>(a) For content that is covered by intellectual property rights, like photos and videos (“IP Content”),
+            the User specifically grants FanDine a non-exclusive, transferable, sub-licensable, royalty-free, worldwide
+            license to use any IP Content that the User posts on or in connection with FanDine (“IP License”).
+            <br>(b) When the User deletes IP Content, the User understands that removed content may persist in backup
+            copies for an indefinite period of time.
+            <br>(c) When the User publishes content or information on FanDine, it means that the User is allowing
+            everyone to access to and use of that information, and to associate it with the User.
+            <br>(d) By clicking “like” for Facebook, Twitter, Linked In, or Google +1, or the equivalent for any social
+            media on FanDine’s website the User grants FanDine permission to post to the User’s social media account on
+            the User’s behalf.
+            <br>(e) By linking the User’s social media account details (username and password), the User is allowing
+            FanDine to link the User’s User profile to the User’s social media account.
+            <br>(f) By providing email addresses or uploading a .csv file the User is giving FanDine permission to send
+            an email to that/those address(es) on the User’s behalf.
+            <br>13.4 Consent to Notifications. By opting into FanDine’s SMS (short message service using a mobile
+            communications data network to exchange short text messages) communications, User acknowledges and accepts
+            that the User will receive text messages on the User’s mobile device regarding the User’s account
+            information, program news, and promotions involving FanDine or FanDine’s partner network involving the
+            Establishments.
+            <br>The User acknowledges and accepts that text messages from FanDine are not encrypted and information
+            about the User’s Account may be included in text messages. The User is responsible for keeping the User’s
+            personal information confidential and keeping the User’s mobile device locked with a password. FanDine is
+            not responsible for lost, incomplete, stolen, undelivered, or misdirected SMS messages.
+            <br>13.5 CASL. By participating in the Services, the User agrees to receive reservation, wait time, order or
+            other confirmations by e-mail, text message or App notification after booking a reservation, requesting a
+            wait time or making any other request through the Services. The User agrees to receive notifications by
+            e-mail, text message or App notification from FanDine regarding any changes to the User’s Account, the
+            User’s use of the Services or to these Terms.
+            <br>Pursuant to CASL, the User agrees to receive commercial electronic messages such as emails, text
+            messages and App notifications for the purposes related to the Terms from FanDine. The User may withdraw
+            this consent by written notice to FanDine.
+            <br><br><b>14. Intellectual Property Rights (“IPR”)</b>
+            <br>14.1 License. Subject to the Terms, FanDine grants the User a non-exclusive, non-transferable, revocable
+            license to use the Services on the User’s compatible mobile or other electronic devices.
+            <br>14.2 Use of Services and Site. The Services and Site and all of its content are protected by copyrights,
+            trade-mark, and other applicable intellectual property and proprietary laws, and is owned, controlled,
+            and/or licensed by FanDine and/or its affiliates or licensors. The Services and Site and its contents are
+            made available solely for the User’s own personal, non-commercial and lawful use. Nothing contained on the
+            Site should be considered as granting the User, by implication, estoppel, or otherwise, any license or right
+            to use any trademarks, signs, logos, or other names or copyright in the content in the Services or the Site
+            without the expressed written consent of the applicable rights holder.
+            <br>14.3 FanDine IPR. The content and design of the Services is protected by Canadian and international
+            copyright laws. FanDine is the sole and exclusive copyright owners of the Services and FanDine’s content,
+            including, but not limited to, visual interfaces, interactive features, text, graphical content, design,
+            products, video, and data (“FanDine’s Content”). The User may not copy, reproduce, republish, upload, post,
+            display, transmit or frame any of FanDine’s content without prior written consent from the copyright owners,
+            except that the User may view, download, display and print a single copy of these materials on a single
+            computer for personal, noncommercial use only, so long as: the User does not alter or modify the materials
+            in any way; the User includes all applicable notices and disclaimers (including copyright notices); and the
+            User does not use the materials in a way that suggests an association with FanDine or an affiliated FanDine
+            entity. The User understands and agrees that nothing in the Terms assigns or transfers any rights, title or
+            interests to the content or materials on the Services to the User or any other User. FanDine neither
+            warrants nor represents that the User’s use of materials displayed on the Services will not infringe rights
+            of third parties not owned by or affiliated with FanDine. The User may use the information on the Services
+            solely for the User’s personal, non-commercial use. The User agrees not to use, display, distribute, modify,
+            reproduce, reformat, sell, or promote FanDine’s Content in any way except as expressly authorized by
+            FanDine. Except as otherwise authorized by FanDine, FanDine does not grant the User any express or implied
+            right or license to the Services, FanDine’s Content, or FanDine’s intellectual property rights.
+            <br>14.4 User IPR. The User owns all of the content that the User submits to the Services, including but not
+            limited to the User’s photos, profile information, reviews, ratings, comments, and any other materials (the
+            “User’s Content”). The User specifically grants FanDine, the Users of the Services, third party websites,
+            mobile applications and any other entity that obtains the User’s Content from the Services, a non-exclusive,
+            transferable, sub-licensable, royalty-free, worldwide license to use any of the User’s Content posted on or
+            in connection with FanDine. The User irrevocably waives any claims or assertions any legal right that the
+            User may have in respect of the use of the User’s Content. The User represents and warrants that the User is
+            the sole author of the User’s Content or has been provided express rights or permission from the rights
+            holder to submit the User’s Content.
+            <br><br><b>15. Assignment</b>
+            <br>15.1 User. The User may not assign, transfer, charge or otherwise seek to deal in any of its respective
+            rights or obligations under the Terms without the prior written consent of FanDine.
+            <br>15.2 FanDine. FanDine may, without consent, assign or transfer its rights and obligations under the
+            Terms.
+            <br><br><b>16. Termination Of Use</b>
+            <br>16.1 Notice of Termination. Any notice required to be given by the User to FanDine or by FanDine to the
+            User pursuant to this Section 16 must be given in writing and as required by Section 26. Any termination
+            under this Section 16 is effective as of the time of notice deemed to have been given under Section 26.
+            <br>16.2 Termination or Suspension by FanDine. FanDine may, in its sole discretion, terminate the User’s
+            Account or the User’s use of the Services at any time for any reason, including but not limited to the
+            User’s violation of the Terms, death of the User or personal bankruptcy of the User. FanDine reserves the
+            right to change, suspend or discontinue any or all aspects of the Services at any time without prior notice
+            to the User and without reason or explanation. If the User’s Account is suspended or terminated, FanDine may
+            prohibit the User from regaining access to the User’s Account or from creating a new Account. The User
+            agrees that FanDine shall not be liable for any suspension or termination of User’s Account or for any
+            effects thereof. FanDine must not provide notice to the User of FanDine’s termination of the User’s Account
+            or the User’s use of the Services.
+            <br>16.3 Other Termination. The Agreement will terminate immediately if FanDine becomes bankrupt or sells or
+            dissolves the Services.
+            <br>16.4 Effect of Termination on User Account
+            <br>(a) User Termination. Any Restaurant Credits in the Account and Monetary Units in the Wallet prior to
+            termination of the User’s Account may become inaccessible to the User indefinitely upon termination of the
+            User’s Account. If the User terminates the User’s Account, the User agrees to forfeit the Restaurant Credits
+            in the User’s Account and Monetary Units in the Wallet. FanDine shall not be liable for the User’s loss of
+            Restaurant Credits or Monetary Unit upon termination of the User’s Account or for any effects thereof.
+            <br>(b) FanDine Termination. If FanDine suspends or terminates the User’s Account, any Restaurant Credits in
+            the User’s Account and Monetary Units in the Wallet prior to suspension or termination of the User’s Account
+            may become inaccessible to the User indefinitely upon suspension or termination of the User’s Account.
+            <br>(c) Establishment Termination. If an Establishment’s Account on the Services is suspended or terminated,
+            however caused, the User may be eligible to have the value of the Restaurant Credits that remain outstanding
+            by the User for that Establishment at the time of the termination converted into the Monetary Unit at the
+            following fixed exchange rate (the “Termination Exchange Rate”):
+            <br>1 Restaurant Credit = 0.8 Monetary Units
+            <br>The User may be eligible to have the value of the Restaurant Credits that remain outstanding by the User
+            converted into the Monetary Unit only for the value of the Restaurant Credits that Establishment has issued
+            to the User.
+            <br>FanDine will convert the User’s outstanding Restaurant Credits into the Monetary Unit at the Termination
+            Exchange Rate only if FanDine receives the outstanding balance of Restaurant Credits in the Monetary Unit
+            from the Establishment at which the Restaurant Credits are redeemable (the “Funds”), pursuant to the
+            Establishment Terms, after the termination of the Establishment from the Services. If the Establishment does
+            not pay the Funds to FanDine, the Restaurant Credits outstanding by the User for the Establishment will not
+            be converted into the Monetary Unit and there will be no payment to the User pursuant to the termination of
+            the Establishment from the Services.
+            <br>If an Establishment’s Account is terminated because the Establishment ceases to operate or do business,
+            all Restaurant Credits that remain outstanding and redeemable by the User for that Establishment will be
+            forfeited and cancelled.
+            <br>16.5 Recourse by User. If the User is dissatisfied with the Services, Site or the Terms, the User’s sole
+            and exclusive remedy is to discontinue the use of the Services and Site. In such an event, the User agrees
+            to destroy and cease all use of all materials and intellectual property rights of FanDine obtained by the
+            User from the Services and Site and all copies thereof.
+            <br>16.6 Survival. These provisions shall survive the termination of the Terms, however caused.
+            <br><br><b>17. Force Majeure</b>
+            <br>17.1 Neither party will be liable to the other for the failure to fulfill obligations caused by
+            circumstances outside of its reasonable control. This clause does not apply to any of the User’s obligations
+            to pay charges for services provided.
+            <br><br><b>18. Copyright Infringement Notices Under The Copyright Act</b>
+            <br>18.1 FanDine respects the intellectual property rights of others and require those that use the Services
+            to do the same. FanDine may, in appropriate circumstances and at FanDine’s discretion, remove or disable
+            access to material on the Services that infringes upon the copyright rights of others. FanDine also may, in
+            FanDine’s discretion, remove or disable links or references to an online location that contains infringing
+            or unlawful material or activity.
+            <br>18.2 Effective January 1, 2015, the Canadian Copyright Act provides that an owner of the copyright in a
+            work or other subject-matter may send a notice of claimed infringement to a person who provides the means of
+            telecommunication through which the electronic location that is the subject of the claim of infringement is
+            connected to the Internet or another digital network.
+            <br>18.3 If the User believes that the User’s copyright has been or is being infringed upon by material
+            found in the Services, the User is required to follow the following procedure to file a notification in
+            writing pursuant to section 41.25(2) of the Copyright Act:
+            <br>(a) state the User’s name and address and any other particulars prescribed by regulation that enable
+            communication with the User;
+            <br>(b) identify the work or other subject-matter to which the claimed infringement relates;
+            <br>(c) state the User’s interest or right with respect to the copyright in the work or other
+            subject-matter;
+            <br>(d) specify the location data for the electronic location to which the claimed infringement relates;
+            <br>(e) specify the infringement that is claimed;
+            <br>(f) specify the date and time of the commission of the claimed infringement; and
+            <br>(g) any other relevant information.
+            <br>18.4 Upon receipt of the above written notification, FanDine shall:
+            <br>(a) as soon as feasible forward the notice electronically to the person to whom the electronic location
+            identified by the location data specified in the notice belongs and inform the User of its forwarding or, if
+            applicable, of the reason why it was not possible to forward it; and
+            <br>(b) retain records that will allow the identity of the person to whom the electronic location belongs to
+            be determined, and do so for six months beginning on the day on which the notice of claimed infringement is
+            received or, if the User commences proceedings relating to the claimed infringement and so notifies the
+            person before the end of those six months, for one year after the day on which the person receives the
+            notice of claimed infringement.
+            <br>18.5 Note that not all unauthorized uses of copyrighted materials are infringements. The doctrine of
+            fair dealing under the Copyright Act may be applicable. FanDine cannot offer any legal advice. Should the
+            User have questions, the User must seek legal advice from a lawyer.
+            <br><br><b>19. Disclaimer</b>
+            <br>19.1 THE USER UNDERSTANDS AND AGREES THAT FANDINE APP, SITE AND ANY SERVICES, CONTENT OR INFORMATION
+            CONTAINED ON OR PROVIDED BY THE FANDINE SERVICES IS PROVIDED ON AN "AS IS" AND “AS AVAILABLE” BASIS. THE
+            USER UNDERSTANDS AND AGREES THAT THE USER’S USE OF THE SERVICES WILL BE AT THE USER’S OWN RISK. FANDINE DOES
+            NOT MAKE ANY EXPRESS OR IMPLIED WARRANTIES, REPRESENTATIONS OR ENDORSEMENTS WHATSOEVER (INCLUDING WITHOUT
+            LIMITATION WARRANTIES OF TITLE OR NON-INFRINGEMENT, OR THE IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS
+            FOR A PARTICULAR PURPOSE) WITH REGARD TO THE SERVICES OR ANY MERCHANDISE, INFORMATION OR SERVICE PROVIDED
+            THROUGH THE SERVICES. FANDINE MAKES NO WARRANTIES OR REPRESENTATIONS THAT THE SERVICES HAVE BEEN AND WILL BE
+            PROVIDED WITH DUE SKILL, CARE AND DILIGENCE OR ABOUT THE ACCURACY OR COMPLETENESS OF THE CONTENT ON THE
+            SERVICES AND ASSUME NO RESPONSIBILITY WHATSOEVER FOR ANY INACCURACY, ERROR OR MISTAKE OF CONTENT, FOR ANY
+            INJURY THAT ARISES OUT OF THE USE OF OR ACCESS TO THE SERVICES, AND/OR FOR ANY UNAUTHORIZED ACCESS TO OR USE
+            OF THE FANDINE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION STORED THEREIN. IN ADDITION, FANDINE DOES NOT
+            GUARANTEE THAT USE OF THE SERVICES WILL BE FREE FROM TECHNOLOGICAL DIFFICULTIES INCLUDING, BUT NOT LIMITED
+            TO, UNAVAILABILITY OF INFORMATION, DOWNTIME, SERVICE DISRUPTIONS, SERVICE VIRUSES OR WORMS, LOSS OF DATA OR
+            CONTENT, AND THE USER UNDERSTANDS THAT THE USER IS RESPONSIBLE FOR IMPLEMENTING SUFFICIENT PROCEDURES AND
+            CHECKPOINTS TO SATISFY THE USER’S PARTICULAR REQUIREMENTS FOR ACCURACY OF DATA INPUT AND OUTPUT. FANDINE
+            WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN THE USER AND THE
+            ESTABLISHMENTS. THE USER IS SOLELY RESPONSIBLE FOR ALL OF THE USER’S COMMUNICATIONS AND INTERACTIONS WITH
+            THE ESTABLISHMENTS AND OTHER USERS OF THE SERVICES AND WITH OTHER PERSONS WITH WHOM THE USER COMMUNICATES OR
+            INTERACTS ON THE SERVICES. DESPITE THE ABOVE, FANDINE’S TOTAL LIABILITY TO THE USER FOR ANY CAUSE OF ACTION
+            THE USER TAKES AGAINST FANDINE WILL AT ALL TIMES BE LIMITED TO TWENTY DOLLARS ($20.00) OR THE AMOUNT, IF
+            ANY, THAT THE USER HAS PAID TO FANDINE IN THE LAST TWELVE MONTHS, WHICHEVER IS GREATER.
+            <br><br><b>20. Indemnification</b>
+            <br>20.1 The User agrees that the User will indemnify and hold harmless FanDine, its directors, officers,
+            employees and agents against any damages, losses, liabilities, judgments, costs or expenses (including
+            reasonable attorneys' fees and costs) arising out of a claim by any person arising or relating to the User’s
+            breach of the Terms or materials the User has posted or other actions taken by the User in relation to the
+            Services.
+            <br><b>21. Limitations Of Liability</b>
+            <br>21.1 THE USE OF THE SERVICES IS ENTIRELY AT THE USER’S OWN RISK, AND IN NO EVENT SHALL FANDINE BE LIABLE
+            FOR ANY DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, EXEMPLARY, PUNITIVE, OR ANY MONETARY OR OTHER
+            DAMAGES, FEES, FINES, PENALTIES, OR LIABILITIES ARISING OUT OF OR RELATING IN ANY WAY TO ANY USE OF THIS
+            SERVICE, OR APPS OR SITES ACCESSED THROUGH THIS SERVICE, AND/OR CONTENT OR INFORMATION PROVIDED HEREIN,
+            INCLUDING BUT NOT LIMITED TO ANY ERRORS, MISTAKES OR INACCURACIES OF CONTENT, ANY UNAUTHORIZED ACCESS TO OR
+            USE OF THE FANDINE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION STORED THEREIN, ANY INTERRUPTION OR
+            CESSATION OF THE SERVICES, ANY TECHNOLOGICAL DIFFICULTIES, ANY LOSS OF THE USER’S DATA OR CONTENT FROM THE
+            SERVICES, ANY ERRORS OR OMISSIONS IN ANY CONTENT OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT
+            OF THE USER’S USE OF THE SERVICES, AND/OR THE DISCLOSURE OF INFORMATION PURSUANT TO THE TERMS OR TO THE
+            PRIVACY POLICY. THE USER’S SOLE AND EXCLUSIVE REMEDY FOR DISSATISFACTION WITH THE SERVICE IS TO STOP USING
+            THE SERVICE. THE USER HEREBY ACKNOWLEDGES THAT THIS PARAGRAPH SHALL APPLY TO ALL CONTENT AND SERVICES
+            AVAILABLE THROUGH THE SERVICES. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF INCIDENTAL OR
+            CONSEQUENTIAL DAMAGES, SO THE ABOVE LIMITATION OR EXCLUSION MAY NOT APPLY TO THE USER. FANDINE IS NEITHER AN
+            AGENT OF NOR OTHERWISE ASSOCIATED WITH ANY ESTABLISHMENT OR USER OF THE SERVICES.
+            <br><br><b>22. Links To Third Party Websites</b>
+            <br>22.1 The Services may contain links to other applications or websites operated by third parties,
+            including but not limited to Third Party Apps or Sites that may display the FanDine trade-marks (“Third
+            Party Apps or Sites” or “Third Party App or Site”). These links are available for the User’s convenience and
+            are intended only to enable access to these Third Party Apps or Sites and for no other purpose.
+            <br>22.2 FanDine does not warrant or make any representation about the substance, quality, functionality,
+            and accuracy, fitness for a particular purpose, merchantability or any other representation about any Third
+            Party App or Site or its content. A link to a Third Party App or Site on FanDine does not constitute
+            sponsorship, endorsement, approval or responsibility for any Third Party App or Site. FanDine makes no
+            representation or warranty as to any products or services offered on any Third Party App or Site. The
+            conditions of use and privacy policy of any Third Party App or Site may differ substantially from the
+            conditions of use and legal notices that apply to the User’s use of the Services. The User must review the
+            conditions of use for all Third Party Apps or Sites for more information about the terms and conditions that
+            apply to the User’s use of Third Party Apps or Sites.
+            <br><br><b>23. Entire Agreement</b>
+            <br>23.1 The Terms represent the entire agreement between the User and FanDine regarding the use of the
+            Services and supersedes any other agreement or understanding on the subject matter. There are no
+            representations or warranties or promises, express or implied, statutory or otherwise and no collateral
+            agreements other than as expressly set forth or referred to in the Terms.
+            <br><br><b>24. Governing Law</b>
+            <br>24.1 The User agrees that any dispute or claim (including personal injury claims) related to the User’s
+            use of the Services is subject to the exclusive jurisdiction of a court of competent jurisdiction within the
+            Province of British Columbia, Canada, and will be adjudicated pursuant to the laws of British Columbia and
+            Canada without the application of conflict of laws principles. The Terms also apply to anyone claiming on
+            the User’s behalf.
+            <br><br><b>25. English Language</b>
+            <br>25.1 The parties hereto acknowledge that they have required these Terms to be drawn up in the English
+            language. Les Parties aux présentes ont expressément requis que cette entente soit rédigée en anglais.
+            <br><br><b>26. Notice</b>
+            <br>26.1 FanDine. FanDine may give any notice required by this Agreement by means of a general notice on the
+            Services, electronic mail to the User’s e-mail address on record in FanDine’s account information, SMS to
+            the User’s mobile telephone number on record in FanDine’s account information, or by written communication
+            by mail or courier sent to the User’s address on record in FanDine’s account information. Such notice shall
+            be deemed to have been given immediately after sending by electronic mail or SMS or on delivery if sending
+            by mail or courier.
+            <br>26.2 User. The User may give any notice required by this Agreement to FanDine by written communication
+            in electronic mail at the e-mail address in Section 27.2 and such notice shall be deemed to have been given
+            48 hours after such notice has been sent.
+            <br><br><b>27. Contact Information</b>
+            <br>27.1 To the extent permitted under applicable law, the User and FanDine may communicate with each other
+            by electronic means and such communication is acceptable as a signed writing.
+            <br>27.2 If the User has any questions about the Terms or the Services, the User must contact FanDine at
+            support@FanDine.com.
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#my_popup').popup();
+        $('#agree-content').popup();
+    });
+</script>
+<footer>
+    <div include-html="footer.html"></div>
+    <script>
+        navbar.includeHTML();
+    </script>
+    <!-- <div class="container">
+        <div style="margin-top: 5%">
+            <a href="#">Contact Us</a>&nbsp;|&nbsp;
+            <a target="_blank" href="https://www.indeed.com/cmp/Fandine-Technologies-Ltd./jobs">Career</a>&nbsp;|&nbsp;
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+        Copyright © 2017 FanDine Technologies Ltd. All rights reserved.
+    </div> -->
+</footer>
+</body>
+</html>

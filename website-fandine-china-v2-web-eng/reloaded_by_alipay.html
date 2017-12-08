@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fandine Promotion</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function getPX(n){
+            return n + "px";
+        }
+
+        $(function () {
+            let bodyWidth = $(document.body).width();
+            let unit = bodyWidth / 375;
+            $(document.body).css("padding", getPX(17 * unit));
+
+            $("h1").css("font-size", getPX(26 * unit));
+            $("h2").css("font-size", getPX(20 * unit));
+            $(".hr-space").css("padding-top", getPX(20 * unit));
+            $("img")
+                .css("padding-top", getPX(20 * unit))
+//                .css("width", getPX(142 * unit))
+//                .css("height", getPX(246 * unit))
+                .css("margin", "auto");
+            $(".bottom").css("font-size", getPX(11 * unit));
+            $(".row-space").css("padding-top", getPX(20 * unit));
+            $(".content")
+                .css("font-size", getPX(15 * unit))
+                .css("padding-left", getPX(20 * unit))
+                .css("padding-right", getPX(20 * unit))
+                .css("padding-bottom", getPX(40 * unit));
+        });
+    </script>
+    <style>
+        body {
+            background: #e7e7e7 no-repeat center fixed;
+            background-size: cover;
+            -webkit-background-size: cover;
+        }
+        .content {
+            background: #ffffff no-repeat center fixed;
+            background-size: cover;
+            border-radius: 20px;
+            -webkit-background-size: cover;
+            color: #333333;
+        }
+        .bottom{
+            color: #ccc3a9;
+        }
+        hr {
+            background-color: #fff;
+            border-top: 3px dotted #8c8b8b;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid" >
+    <div class="content">
+        <div class="row row-space">
+            <div class="col-xs-12 col-md-12">
+                <h1>Reload Wallet Money and Get up to $150</h1>
+            </div>
+        </div>
+        <div class="row hr-space">
+            <div class="col-xs-12 col-md-12">
+                <hr/>
+            </div>
+        </div>
+        <div class="row">
+            <img src="img/detail-reloadedbyalipay.png" class="img-responsive"/>
+        </div>
+        <div class="row row-space">
+            <div class="col-xs-12 col-md-12">
+                <h2>When is the offer valid?</h2>
+                <p>The promotion is valid through Oct.31, 2017.</p>
+            </div>
+        </div>
+        <div class="row row-space">
+            <div class="col-xs-12 col-md-12">
+                <h2>What is the refund policy?</h2>
+                <p>If you partially use the wallet money and would like to refund the remaining, we will return the unused portion of the amount you paid through reload function. Rewards and promotion are not eligible for refund and will not be included in the unused portion.</p>
+            </div>
+        </div>
+        <div class="row row-space">
+            <div class="col-xs-12 col-md-12">
+                <h2>What conditions apply to this offer?</h2>
+                <p>All existing FanDine terms of service apply to this promotion. In addition, we reserve the right to change or terminate this promotion without notice. However, we will honour the promotion for any customer who qualified prior to the change or cancellation.</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <h2><small class="bottom">All Rights Reserved by FanDine Technologies LTD.</small></h2>
+        </div>
+    </div>
+</div>
+</body>
+</html>

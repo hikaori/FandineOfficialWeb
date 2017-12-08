@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="food, ordering, 外卖,预订,餐饮,排队,在线,菜谱,支付,餐厅,温哥华,多语言,送餐,中国菜,日本料理,韩国菜,寿司,汉堡包,薯条,美式,快餐,墨西哥菜,素食,烧烤,意国,风情,高档,餐厅,吃货,天堂">
+    <meta name="description" content="现在下载 FanDine 从此摆脱排队烦恼，让紧张的午餐时间更加宽裕，提前订餐让您的外卖即到即取！">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FanDine 饭蛋 | 外卖预订餐饮服务平台</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/ie10-viewport-bug-workaround.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/jumbotron-narrow.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.3/jquery.scrollTo.min.js"></script>
+    <script>
+        //        $(function() {
+        //            $('#home-nav').bind('click', 'ul li a', function(event) {
+        //                $.scrollTo(event.target.hash, 550, {"offset": -80});
+        //            });
+        //        });
+        function openH5PreOrder(event) {
+            let e = event || window.event;
+            let strWindowFeatures = "menubar=0,location=0,resizable=0,scrollbars=yes,status=no,width=414,height=736,left=" + e.screenX +",top=" + e.screenY;
+            window.open("https://m.fandine.com/", "H5PreOrder", strWindowFeatures);
+        }
+
+    </script>
+</head>
+<body data-spy="scroll" data-target="#homePageNavBar" data-offset="100">
+<div class="img-responsive" id="scroll-home"></div>
+<nav class="navbar navbar-default navbar-fixed-top" id="home-nav" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+
+        <div class="navbar-header" >
+            <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse"
+                    data-target="#homePageNavBar" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#DownloadNavBar"
+                    aria-expanded="false" id="download-button">
+                客户端下载
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="homePageNavBar">
+            <a class="navbar-brand thumbnail hidden-xs" href="#"><img id="small-logo" src="img/FD_logo@3x.png"/></a>
+            <ul class="nav navbar-nav navbar-right navbar-a">
+                <li><a href="#scroll-home">主页</a></li>
+                <li><a href="#consomer-app">下载</a></li>
+                <li><a href="#" onclick="openH5PreOrder()">预订</a></li>
+                <li><a target="_blank" href="https://blog.fandine.com">资讯</a></li>
+                <li><a href="join_zh.html">加入我们</a></li>
+                <li><a target="_blank" href="https://ownerweb.fandine.com">老板网</a></li>
+                <!--<li><a href="#">Blog Map</a></li>-->
+                <li id="translate-li">
+                    <a href="index.html" id="translate-a">
+                        <img class="img-responsive" id="translate-img" src="img/translate_e@3x.png"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="hidden-lg hidden-md hidden-sm">
+        <div class="collapse navbar-collapse" id="DownloadNavBar">
+            <ul class="nav navbar-nav navbar-right c-download">
+                <li><a href="https://play.google.com/store/apps/details?id=fandine.consumer.na&hl=en"><img src="img/icn_google2.png"/> Download on the Google play</a></li>
+                <li><a href="https://itunes.apple.com/ca/app/fandine/id952824896"><img src="img/icn_apple2.png"/> Download on the App Store</a></li>
+                <li><a href="./download/fandine.apk"><img src="img/icn_android2.png"/> Download APK</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <div id="logo-text">
+                <img id="big-logo" src="img/logo@3x.png" class="img-responsive"/>
+                <div id="title-text">
+                    打造全球健康美味餐饮平台
+                </div>
+                <button type="button" class="redButton" onclick="openH5PreOrder()">
+                    现在就预订
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="parallax" id="front-page"></div>
+
+<div class="container">
+    <div class="row marketing" id="consomer-app">
+        <div class="market-title">
+            FanDine App
+        </div>
+        <div class="market-sub-title">
+            随心所选 选你所选
+        </div>
+        <div class="four-things">
+            <div class="col-sm-3 col-xs-12 one-fourth">
+                <div>
+                    <img class="one-fourth-img" src="img/icn_preorder@3x.png"/>
+                </div>
+                <div class="one-fourth-text">
+                    <div class="one-fourth-title">预定</div>
+                    <div class="one-fourth-desc">担心餐厅没空位？通过FanDine提前预定，到餐厅再付费享受美食和服务！
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12 one-fourth">
+                <div>
+                    <img class="one-fourth-img" src="img/icn_takeout@3x.png"/>
+                </div>
+                <div class="one-fourth-text">
+                    <div class="one-fourth-title">外带</div>
+                    <div class="one-fourth-desc">不想到餐厅排队下单？使用FanDine外带服务轻松跳过此过程！
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12 one-fourth">
+                <div>
+                    <img class="one-fourth-img" src="img/icn_delivery@3x.png"/>
+                </div>
+                <div class="one-fourth-text">
+                    <div class="one-fourth-title">送餐</div>
+                    <div class="one-fourth-desc">不想到餐厅用餐？没问题，使用FanDine送餐服务即可轻松享受美食！
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12 one-fourth">
+                <div>
+                    <img class="one-fourth-img" src="img/icn_dinein@3x.png"/>
+                </div>
+                <div class="one-fourth-text">
+                    <div class="one-fourth-title">堂食</div>
+                    <div class="one-fourth-desc">看不懂英文菜单？用FanDine扫描二维码即可轻松查看中文电子菜单！
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row marketing" style="margin-top: 6vh">
+        <div class="collapse navbar-collapse" id="download-arr">
+            <table>
+                <tr>
+                    <td>
+                        <a  target="_blank" href="https://play.google.com/store/apps/details?id=fandine.consumer.na&hl=en">
+                            <div class="download-div">
+                                <img src="img/google@3x.png" class="img-responsive download-img"/>
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a target="_blank" href="https://itunes.apple.com/ca/app/fandine/id952824896">
+                            <div class="download-div" style="margin-left: 12%;">
+                                <img src="img/apple@3x.png"
+                                     class="img-responsive download-img"/>
+                            </div>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="./download/fandine.apk">
+                            <div class="download-div" style="margin-left: 24%;">
+                                <img src="img/android@3x.png" id="android-apk"
+                                     class="img-responsive download-img"/>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="parallax" id="sushi-donut"></div>
+<div class="sticky-phone" id="display-phone"></div>
+
+<div class="container">
+    <div class="row marketing" id="scroll-mini">
+        <!--naming should be one third instead of one fourth, but this is fine i guess :) -->
+        <div class="market-title">
+            小程序
+        </div>
+        <div class="market-sub-title">
+            为每个餐厅专门定制
+        </div>
+        <div class="four-things">
+            <div class="col-sm-4 col-xs-12 one-fourth">
+                <div>
+                    <img class="one-fourth-img" src="img/icn_translate%20menu@3x.png"/>
+                </div>
+                <div class="one-fourth-text">
+                    <div class="one-fourth-title">菜单翻译</div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12 one-fourth">
+                <div>
+                    <img class="one-fourth-img" src="img/icn_save%20time@3x.png"/>
+                </div>
+                <div class="one-fourth-text">
+                    <div class="one-fourth-title">节省时间</div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12 one-fourth">
+                <div>
+                    <img class="one-fourth-img" src="img/icn_yields@3x.png"/>
+                </div>
+                <div class="one-fourth-text">
+                    <div class="one-fourth-title">提高收益</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="parallax" id="mini-app"></div>
+
+<div class="container">
+    <div class="row marketing" id="scroll-server">
+        <!--naming should be one third instead of one fourth, but this is fine i guess :) -->
+        <div class="market-title">
+            服务员 App
+        </div>
+        <div class="market-sub-title">
+            更快更好的服务
+        </div>
+        <div class="col-sm-10 market-desc">
+            我们为您分析客户的行为方式。当他们下订单和买单时，我们会及时通知您。通过我们的数据分析，可以更好地了解您的客户，从而为您提供更好更有效的服务。
+        </div>
+    </div>
+</div>
+<div class="parallax" id="happy-chef"></div>
+
+<div class="container">
+    <div class="row marketing" id="about-us">
+        <div class="market-title">
+            关于FanDine
+        </div>
+        <div class="col-sm-10 market-desc">
+            FanDine成立于2014年，我们一直致力于打造一个全球最专业、最值得信赖的一站式信息化餐饮平台。
+        </div>
+    </div>
+</div>
+<div class="parallax" id="world-map"></div>
+
+<footer>
+    <div class="container">
+        <div style="margin-top: 32px">
+            <a href="join_zh.html">Contact Us</a>&nbsp;|&nbsp;
+            <a target="_blank" href="https://www.indeed.com/cmp/Fandine-Technologies-Ltd./jobs">Career</a>&nbsp;|&nbsp;
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+        Copyright © 2017 FanDine Technologies Ltd. All rights reserved.
+    </div>
+</footer>
+</body>
+</html>
